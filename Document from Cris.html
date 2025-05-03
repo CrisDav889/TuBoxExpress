@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TuBoxExpress - Personal Shopper desde Miami a Guatemala</title>
+    <meta name="description" content="Servicio exclusivo de personal shopper que te brinda acceso a productos de lujo y marcas internacionales disponibles en Miami, con entrega segura a Guatemala.">
+    <meta name="keywords" content="personal shopper, compras Miami, envíos Guatemala, productos de lujo, marcas premium, compras internacionales">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-bg: #FFFFFF;
+            --primary-text: #000000;
+            --accent-color: #f26522;
+            --primary-btn-bg: #f26522;
+            --primary-btn-text: #FFFFFF;
+            --secondary-btn-border: #000000;
+            --secondary-btn-text: #000000;
+            --card-bg: #F9F9F9;
+            --border-shadow: #E0E0E0;
+        }
+        
+        [data-bs-theme="dark"] {
+            --primary-bg: #121212;
+            --primary-text: #FFFFFF;
+            --accent-color: #f26522;
+            --primary-btn-bg: #f26522;
+            --primary-btn-text: #000000;
+            --secondary-btn-border: #FFFFFF;
+            --secondary-btn-text: #FFFFFF;
+            --card-bg: #1E1E1E;
+            --border-shadow: #2C2C2C;
+        }
+        
+        body {
+            background-color: var(--primary-bg);
+            color: var(--primary-text);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .navbar {
+            background-color: var(--primary-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--accent-color) !important;
+            font-size: 1.5rem;
+        }
+        
+        .nav-link {
+            color: var(--primary-text) !important;
+            font-weight: 500;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-btn-bg);
+            border-color: var(--primary-btn-bg);
+            color: var(--primary-btn-text);
+        }
+        
+        .btn-outline-secondary {
+            border-color: var(--secondary-btn-border);
+            color: var(--secondary-btn-text);
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .feature-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px var(--border-shadow);
+            transition: transform 0.3s ease;
+            height: 100%;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+        
+        .accent-text {
+            color: var(--accent-color);
+        }
+        
+        footer {
+            background-color: var(--card-bg);
+            padding: 50px 0;
+        }
+        
+        .testimonial-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 30px;
+            margin: 15px;
+            box-shadow: 0 5px 15px var(--border-shadow);
+        }
+        
+        .theme-switcher {
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: var(--primary-text);
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">TuBox<span class="accent-text">Express</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#servicios">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#como-funciona">Cómo funciona</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#nosotros">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonios">Testimonios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contacto">Contacto</a>
+                    </li>
+                    <li class="nav-item ms-2">
+                        <button class="theme-switcher" id="themeToggle">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-4">Compramos por ti en Miami y te lo llevamos a Guatemala</h1>
+            <p class="lead mb-5">Acceso exclusivo a productos de lujo y marcas internacionales sin salir de casa</p>
+            <a href="#contacto" class="btn btn-primary btn-lg px-4 me-2">Empieza ahora</a>
+            <a href="#como-funciona" class="btn btn-outline-secondary btn-lg px-4">Cómo funciona</a>
+        </div>
+    </section>
+
+    <!-- Servicios Section -->
+    <section id="servicios" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Nuestros <span class="accent-text">Servicios</span></h2>
+                <p class="lead">Conectamos Guatemala con las mejores tiendas de Miami</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <h3>Exclusividad</h3>
+                        <p>Acceso a productos de lujo y marcas de renombre que no encontrarás en Guatemala. Trabajamos con boutiques premium en Dolphin Mall, Walmart y Target.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3>Confianza</h3>
+                        <p>Servicio transparente y seguro. Garantizamos autenticidad y calidad en todos los productos. Tu satisfacción es nuestra prioridad.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <h3>Personalización</h3>
+                        <p>Servicio de personal shopper adaptado a tus gustos y presupuesto. Te asesoramos para que cada compra sea perfecta para ti.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cómo funciona Section -->
+    <section id="como-funciona" class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">¿Cómo <span class="accent-text">funciona?</span></h2>
+                <p class="lead">Simple, rápido y seguro</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card text-center">
+                        <div class="feature-icon">
+                            <span class="badge bg-accent rounded-circle p-3">1</span>
+                        </div>
+                        <h3>Nos contactas</h3>
+                        <p>Envíanos tu lista de deseos o déjanos asesorarte sobre las mejores opciones según tus necesidades.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card text-center">
+                        <div class="feature-icon">
+                            <span class="badge bg-accent rounded-circle p-3">2</span>
+                        </div>
+                        <h3>Compramos por ti</h3>
+                        <p>Visitamos las tiendas en Miami, verificamos los productos y realizamos las compras según tus indicaciones.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card text-center">
+                        <div class="feature-icon">
+                            <span class="badge bg-accent rounded-circle p-3">3</span>
+                        </div>
+                        <h3>Preparamos tu envío</h3>
+                        <p>Empacamos cuidadosamente tus productos en nuestro PO BOX en Miami y coordinamos el envío.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card text-center">
+                        <div class="feature-icon">
+                            <span class="badge bg-accent rounded-circle p-3">4</span>
+                        </div>
+                        <h3>Recibes en Guatemala</h3>
+                        <p>Te entregamos tus productos exclusivos en la comodidad de tu hogar en Guatemala.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-5">
+                <a href="#contacto" class="btn btn-primary btn-lg px-4">Quiero empezar</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nosotros Section -->
+    <section id="nosotros" class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h2 class="fw-bold mb-4">Sobre <span class="accent-text">nosotros</span></h2>
+                    <p>TuBoxExpress nació para brindar a los guatemaltecos acceso a productos exclusivos y marcas internacionales disponibles en Miami, sin la necesidad de viajar.</p>
+                    <p>Con un enfoque en confianza, exclusividad y atención personalizada, nos posicionamos como el puente ideal entre Miami y Guatemala para quienes buscan productos de alta gama y lo último en tendencias.</p>
+                    
+                    <div class="mt-4">
+                        <h4 class="fw-bold">Nuestro equipo</h4>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><strong>José Dávila</strong> - Gerente</li>
+                            <li class="mb-2"><strong>José Pablo Dávila</strong> - Mercadeo</li>
+                            <li class="mb-2"><strong>Flor de Dávila</strong> - Recursos</li>
+                            <li class="mb-2"><strong>María Jimena Dávila</strong> - Ventas y Servicios</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Equipo TuBoxExpress" class="img-fluid rounded shadow">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonios Section -->
+    <section id="testimonios" class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Lo que dicen <span class="accent-text">nuestros clientes</span></h2>
+                <p class="lead">Experiencias reales de quienes han usado nuestro servicio</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="mb-3">
+                            <i class="fas fa-star accent-text"></i>
+                            <i class="fas fa-star accent-text"></i>
+                            <i class="fas fa-star accent-text"></i>
+                            <i class="fas fa-star accent-text"></i>
+                            <i class="fas fa-star accent-text"></i>
+                        </div>
+                        <p class="mb-4">"Increíble servicio! Compré un bolso de diseñador que no conseguía en Guatemala. Todo llegó perfecto y en menos tiempo del esperado."</p>
+                        <div class="d-flex align-items-center">
+                            <div>
+                                <h5 class="mb-0">Ana M.</h5>
+                                <small class="text-muted">Ciudad de Guatemala</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="mb-3">
+                            <i class="fas fa-star accent-text"></i>
+                            <i class="fas fa-star accent-text"></i>
+                            <i class="fas fa-star accent-text"></i>
+                            <i class="fas fa-star accent-text"></i>
+                            <i class="fas fa-star accent-text"></i>
+                        </div>
+                        <p class="mb-4">"Como influencer, necesito ropa que no se vea en todos lados. TuBoxExpress me consigue piezas exclusivas que hacen diferencia en mi contenido."</p>
+                        <div class="d-flex align-items-center">
+                            <div>
+                                <h5 class="mb-0">Carlos R.</h5>
+                                <small class="text-muted">Antigua Guatemala</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="mb-3">
+                            <i class="fas fa-star accent-text"></i>
+                            <i class="fas fa-star accent-text"></i>
+                            <i class="fas fa-star accent-text"></i>
+                            <i class="fas fa-star accent-text"></i>
+                            <i class="fas fa-star-half-alt accent-text"></i>
+                        </div>
+                        <p class="mb-4">"Compré tecnología que en Guatemala sale mucho más cara. El ahorro cubrió ampliamente el costo del servicio. 100% recomendado."</p>
+                        <div class="d-flex align-items-center">
+                            <div>
+                                <h5 class="mb-0">María L.</h5>
+                                <small class="text-muted">Quetzaltenango</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-5" style="background-color: var(--accent-color); color: white;">
+        <div class="container text-center">
+            <h2 class="fw-bold mb-4">¿Listo para disfrutar de las mejores compras en Miami?</h2>
+            <p class="lead mb-5">Contáctanos hoy mismo y descubre cómo podemos ayudarte</p>
+            <a href="#contacto" class="btn btn-light btn-lg px-4">Quiero más información</a>
+        </div>
+    </section>
+
+    <!-- Contacto Section -->
+    <section id="contacto" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h2 class="fw-bold mb-4">Contáctanos</h2>
+                    <p class="mb-4">¿Tienes preguntas sobre nuestros servicios? Escríbenos y te responderemos a la brevedad.</p>
+                    
+                    <div class="mb-4">
+                        <h4 class="fw-bold">Información de contacto</h4>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-phone me-2"></i> +502 1234-5678</li>
+                            <li class="mb-2"><i class="fas fa-envelope me-2"></i> info@tuboxexpress.com</li>
+                            <li class="mb-2"><i class="fab fa-instagram me-2"></i> @TuBoxExpressGT</li>
+                            <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> PO BOX en Miami para recepción de paquetes</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="social-icons">
+                        <a href="#" class="text-decoration-none me-3"><i class="fab fa-facebook-f fa-lg"></i></a>
+                        <a href="#" class="text-decoration-none me-3"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="#" class="text-decoration-none me-3"><i class="fab fa-whatsapp fa-lg"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <form>
+                        <div class="mb-3">
+                            <label for="nombre" class="form-label">Nombre completo</label>
+                            <input type="text" class="form-control" id="nombre" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Correo electrónico</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="telefono" class="form-label">Teléfono</label>
+                            <input type="tel" class="form-control" id="telefono">
+                        </div>
+                        <div class="mb-3">
+                            <label for="mensaje" class="form-label">¿Qué productos estás buscando?</label>
+                            <textarea class="form-control" id="mensaje" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h3 class="fw-bold mb-4">TuBox<span class="accent-text">Express</span></h3>
+                    <p>Tu puente de compras entre Miami y Guatemala. Servicio de personal shopper y envíos confiables.</p>
+                </div>
+                
+                <div class="col-md-2 mb-4 mb-md-0">
+                    <h4 class="fw-bold mb-4">Enlaces</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#servicios" class="text-decoration-none">Servicios</a></li>
+                        <li class="mb-2"><a href="#como-funciona" class="text-decoration-none">Cómo funciona</a></li>
+                        <li class="mb-2"><a href="#nosotros" class="text-decoration-none">Nosotros</a></li>
+                        <li class="mb-2"><a href="#testimonios" class="text-decoration-none">Testimonios</a></li>
+                        <li class="mb-2"><a href="#contacto" class="text-decoration-none">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-md-3 mb-4 mb-md-0">
+                    <h4 class="fw-bold mb-4">Servicios</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">Personal Shopper</li>
+                        <li class="mb-2">PO BOX en Miami</li>
+                        <li class="mb-2">Envíos rápidos y seguros</li>
+                        <li class="mb-2">Asesoría de compras</li>
+                    </ul>
+                </div>
+                
+                <div class="col-md-3">
+                    <h4 class="fw-bold mb-4">Contacto</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i> +502 1234-5678</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-2"></i> info@tuboxexpress.com</li>
+                        <li class="mb-2"><i class="fab fa-instagram me-2"></i> @TuBoxExpressGT</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr class="my-4">
+            
+            <div class="text-center">
+                <p class="mb-0">&copy; 2023 TuBoxExpress. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Theme switcher
+        const themeToggle = document.getElementById('themeToggle');
+        const htmlElement = document.documentElement;
+        
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            htmlElement.setAttribute('data-bs-theme', savedTheme);
+            updateThemeIcon(savedTheme);
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-bs-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            htmlElement.setAttribute('data-bs-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+        
+        function updateThemeIcon(theme) {
+            const icon = themeToggle.querySelector('i');
+            if (theme === 'dark') {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+        }
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
